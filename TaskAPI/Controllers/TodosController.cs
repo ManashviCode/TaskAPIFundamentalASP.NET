@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TaskAPI.Models;
+using TaskAPI.Service;
 using TaskAPI.Services;
 
 namespace TaskAPI.Controllers
@@ -11,10 +12,12 @@ namespace TaskAPI.Controllers
     public class TodosController : ControllerBase
     {
         
-        private TodoService _todoService;
-        public TodosController()
+        private readonly ITodoRepository _todoService;
+
+        //dependency injection applying for this class
+        public TodosController(ITodoRepository repository)
         {
-            _todoService = new TodoService();
+            _todoService = repository;
         }
         
         [HttpGet("{id?}")] //when we use ? after the id it tells,that's the optional parameter(means can tell null values)
