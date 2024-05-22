@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // Register ITodoRepository with TodoService
-builder.Services.AddScoped<ITodoRepository, TodoService>();
+builder.Services.AddScoped<ITodoRepository, TodoSqlServerService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

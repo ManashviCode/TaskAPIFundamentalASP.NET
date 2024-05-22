@@ -11,7 +11,6 @@ namespace TaskAPI.Controllers
     [ApiController]
     public class TodosController : ControllerBase
     {
-        
         private readonly ITodoRepository _todoService;
 
         //dependency injection applying for this class
